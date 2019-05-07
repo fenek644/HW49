@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @po_image.url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @po_image.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_po_image_path(@po_image) %> |
+<%= link_to 'Back', po_images_path %>

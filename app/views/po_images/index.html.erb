@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Po Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @po_images.each do |po_image| %>
+      <tr>
+        <td><%= po_image.url %></td>
+        <td><%= po_image.user_id %></td>
+        <td><%= link_to 'Show', po_image %></td>
+        <td><%= link_to 'Edit', edit_po_image_path(po_image) %></td>
+        <td><%= link_to 'Destroy', po_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Po Image', new_po_image_path %>
