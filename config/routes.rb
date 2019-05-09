@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: "pages#home"
+  get 'home' => 'pages#home'
+
   resources :comments
   resources :links
   resources :images
