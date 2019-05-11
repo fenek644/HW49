@@ -1,55 +1,78 @@
-<h1>Home</h1>
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-8">
 
-<tbody>
-<table>
-<% @posts.each do |post| %>
-  <tr>
+    <h1>Home</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+
+    <h2>Posts</h2>
+    <table>
+    <tbody>
+
+    <% @posts.each do |post| %>
+    <tr>
     <td><%= post.content %></td>
     <td><%= post.user_id %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    </tr>
+    <% end %>
+    </table>
 
------------------------------------------------------------------------------------------------------
-<table>
-<tbody>
-<% @links.each do |link| %>
-  <tr>
-    <td><%= link.url %></td>
-    <td><%= link.user_id %></td>
-    <td><%= link_to 'Show', link %></td>
-    <td><%= link_to 'Edit', edit_link_path(link) %></td>
-    <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
+    ---------------------------------------------
+  </div>
+  <div class="col-4">
 
-<br>
+    <h2>Posts</h2>
+    <table>
+    <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link.url %></td>
+        <td><%= link.user_id %></td>
+        <td><%= link_to 'Show', link %></td>
+        <td><%= link_to 'Edit', edit_link_path(link) %></td>
+        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
 
-<%= link_to 'New Link', new_link_path %>
-<br>
+      <br>
 
-----------------------------------------------------------------------------------------------------------
-<table>
-<tbody>
-<% @images.each do |image| %>
-  <tr>
-    <td><%= image.url %></td>
-    <td><%= image.user_id %></td>
-    <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
+      <%= link_to 'New Link', new_link_path %>
+      <br>
 
-<br>
+---------------------------------------------
+  </div>
+  <div class="col-4">
 
-<%= link_to 'New Image', new_image_path %>
-<br>
------------------------------------------------------------------------------------------------------------
+    <h2>Posts</h2>
+    <table>
+    <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image.url %></td>
+        <td><%= image.user_id %></td>
+      </tr>
+      <tr>
+        <td><%= link_to 'Show', image %></td>
+        <td><%= link_to 'Edit', edit_image_path(image) %></td>
+        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Image', new_image_path %>
+    <br>
+    ----------------------------------------------
+  </div>
+</div>
