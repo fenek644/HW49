@@ -14,3 +14,42 @@
 </table>
 
 -----------------------------------------------------------------------------------------------------
+<table>
+<tbody>
+<% @links.each do |link| %>
+  <tr>
+    <td><%= link.url %></td>
+    <td><%= link.user_id %></td>
+    <td><%= link_to 'Show', link %></td>
+    <td><%= link_to 'Edit', edit_link_path(link) %></td>
+    <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Link', new_link_path %>
+<br>
+
+----------------------------------------------------------------------------------------------------------
+<table>
+<tbody>
+<% @images.each do |image| %>
+  <tr>
+    <td><%= image.url %></td>
+    <td><%= image.user_id %></td>
+    <td><%= link_to 'Show', image %></td>
+    <td><%= link_to 'Edit', edit_image_path(image) %></td>
+    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Image', new_image_path %>
+<br>
+-----------------------------------------------------------------------------------------------------------
