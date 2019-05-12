@@ -10,38 +10,63 @@
   <div class="col-4">
 
     <h2>Posts</h2>
-    <table>
-    <tbody>
+<!--    <table>-->
+<!--    <tbody>-->
 
     <% @posts.each do |post| %>
-    <tr>
-    <td><%= post.content %></td>
-    <td><%= post.user_id %></td>
+      <table>
+        <tbody>
+          <tr>
+          <td><%= post.content %></td>
+          <td><%= post.user_id %></td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+        <tr>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
+        </tbody>
+      </table>
     <% end %>
-    </table>
+<!--    </table>-->
+
+    <%= link_to 'New Post', new_post_path %>
+
+    <br>
 
     ---------------------------------------------
   </div>
   <div class="col-4">
 
-    <h2>Posts</h2>
-    <table>
-    <tbody>
+    <h2>Links</h2>
+<!--    <table>-->
+<!--    <tbody>-->
     <% @links.each do |link| %>
+      <table>
+        <tbody>
       <tr>
+
         <td><%= link.url %></td>
         <td><%= link.user_id %></td>
+      </tbody>
+      </table>
+      <table>
+        <tbody>
+        <tr>
         <td><%= link_to 'Show', link %></td>
         <td><%= link_to 'Edit', edit_link_path(link) %></td>
         <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+        </tbody>
+      </table>
+
     <% end %>
-    </tbody>
-    </table>
+<!--    </tbody>-->
+<!--    </table>-->
 
       <br>
 
@@ -52,22 +77,30 @@
   </div>
   <div class="col-4">
 
-    <h2>Posts</h2>
-    <table>
-    <tbody>
+    <h2>Images</h2>
+<!--    <table>-->
+<!--    <tbody>-->
     <% @images.each do |image| %>
+      <table>
+        <tbody>
       <tr>
         <td><%= image.url %></td>
         <td><%= image.user_id %></td>
       </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
       <tr>
         <td><%= link_to 'Show', image %></td>
         <td><%= link_to 'Edit', edit_image_path(image) %></td>
         <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+        </tbody>
+      </table>
     <% end %>
-    </tbody>
-    </table>
+<!--    </tbody>-->
+<!--    </table>-->
 
     <br>
 
