@@ -1,14 +1,113 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-8">
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+    <br>
+  </div>
+</div>
+<!--добавляем посты , каринки и ссылк-->
+<div class="row">
+  <div class="col-4">
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <h2>Posts</h2>
+<!--    <table>-->
+<!--      <tbody>-->
+
+      <% @posts.each do |post| %>
+<!--        <tr>-->
+<!--          <td><%#= post.content %></td>-->
+            <%= post.content %>
+<!--          <td><%#= post.user_id %></td>-->
+        <table>
+          <tbody>
+             <tr>
+
+              <td><%= link_to 'Show', post %></td>
+              <td><%= link_to 'Edit', edit_post_path(post) %></td>
+              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+<!--      </table>-->
+    <%= link_to 'New Post', new_post_path %>
+
+    <br>
+    ---------------------------------------------
+  </div>
+  <div class="col-4">
+
+    <h2>Links</h2>
+<!--    <table>-->
+<!--      <tbody>-->
+      <% @links.each do |link| %>
+<!--        <tr>-->
+<!--          <td><%#= link.url %></td>-->
+          <%= link.url %>
+<!--          <td><%#= link.user_id %></td>-->
+          <table>
+            <tbody>
+              <tr>
+                <td><%= link_to 'Show', link %></td>
+                <td><%= link_to 'Edit', edit_link_path(link) %></td>
+                <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            </tbody>
+          </table>
+      <% end %>
+<!--      </tbody>-->
+<!--    </table>-->
+
+    <br>
+
+    <%= link_to 'New Link', new_link_path %>
+    <br>
+
+    ---------------------------------------------
+  </div>
+  <div class="col-4">
+
+    <h2>Images</h2>
+    <!--    <table>-->
+    <!--    <tbody>-->
+    <% @images.each do |image| %>
+<!--      <table>-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--          <td><%#= image.url %></td>-->
+      <%= image.url %>
+<!--          <td><%#= image.user_id %></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+      <table>
+        <tbody>
+        <tr>
+          <td><%= link_to 'Show', image %></td>
+          <td><%= link_to 'Edit', edit_image_path(image) %></td>
+          <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        </tbody>
+      </table>
+    <% end %>
+    <!--    </tbody>-->
+    <!--    </table>-->
+
+    <br>
+
+    <%= link_to 'New Image', new_image_path %>
+    <br>
+    ----------------------------------------------
+  </div>

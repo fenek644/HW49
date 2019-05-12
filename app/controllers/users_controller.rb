@@ -10,6 +10,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    user_id = params[:id]
+
+    @user = User.find(user_id)
+    # @comment = @row.comments.new
+    @posts = @user.posts.order 'created_at desc'
+    @images = @user.images.order 'created_at desc'
+    @links = @user.links.order 'created_at desc'
   end
 
   # GET /users/new
