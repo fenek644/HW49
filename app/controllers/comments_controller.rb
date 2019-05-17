@@ -23,7 +23,22 @@ class CommentsController < ApplicationController
 
   # POST /comments
   # POST /comments.json
-  def create
+  # def create
+    def create
+      # @comment = @commentable.comments.new comment_params
+      # @comment.save
+      @commentable.comments.create(comment_params)
+      redirect_to post_path @commentable
+
+    end
+
+    # private
+    #
+    # def comment_params
+    #   params.require(:comment).permit(:content)
+    # end
+    # -------------------------------------------------------------
+=begin
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
@@ -50,6 +65,8 @@ class CommentsController < ApplicationController
       end
     end
   end
+=end
+
 
   # DELETE /comments/1
   # DELETE /comments/1.json
