@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :set_commentable, only: [:show, :edit, :update, :destroy]
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   # GET /images
@@ -10,6 +11,12 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    image_id = params[:id]
+
+    @image = Image.find(image_id)
+    @comment = @image.comments.new
+    @comments = @image.comments.order 'created_at desc'
+
   end
 
   # GET /images/new
@@ -63,6 +70,10 @@ class ImagesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_commentable
+      @commentable = Image.find(params[:id])
+    end
+
     def set_image
       @image = Image.find(params[:id])
     end
