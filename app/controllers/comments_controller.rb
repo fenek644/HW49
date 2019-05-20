@@ -25,10 +25,11 @@ class CommentsController < ApplicationController
   # POST /comments.json
   # def create
     def create
-      # @comment = @commentable.comments.new comment_params
-      # @comment.save
-      @commentable.comments.create(comment_params)
-      redirect_to post_path @commentable
+      @comment = @commentable.comments.new comment_params
+      @comment.save
+      # @commentable.comments.create(comment_params)
+      # redirect_to post_path @commentable
+      redirect_to  @commentable
 
     end
 
