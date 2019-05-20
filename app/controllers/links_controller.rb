@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_commentable, only: [:show, :edit, :update, :destroy]
 
   # GET /links
   # GET /links.json
@@ -10,6 +11,12 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
+    link_id = params[:id]
+
+    @link = Link.find(link_id)
+    @comment = @link.comments.new
+    @comments = @link.comments.order 'created_at desc'
+
   end
 
   # GET /links/new
@@ -65,6 +72,10 @@ class LinksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_link
       @link = Link.find(params[:id])
+    end
+
+    def set_commentable
+      @commentable = Link.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

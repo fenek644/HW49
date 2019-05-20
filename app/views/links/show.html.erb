@@ -10,5 +10,34 @@
   <%= @link.user_id %>
 </p>
 
+
+
+
 <%= link_to 'Edit', edit_link_path(@link) %> |
+
 <%= link_to 'Back', links_path %>
+
+<hr />
+
+<!------------------------------------------------------------------------->
+
+
+<%= form_for([@commentable, Comment.new]) do |f| %>
+
+  <p>
+    <%= f.label :comment %> <br/>
+    <%= f.text_area :content, placeholder: "Add a comment" %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+
+<!----------------------------------------------------------------------------------->
+<% @comments.each do |comment| %>
+  <h2><%= comment.content %></h2>
+
+  <hr />
+<% end %>
