@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_commentable, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -12,9 +13,9 @@ class PostsController < ApplicationController
   def show
     post_id = params[:id]
 
-    @row = Post.find(post_id)
-    @comment = @row.comments.new
-    @comments = @row.comments.order 'created_at desc'
+    @post = Post.find(post_id)
+    @comment = @post.comments.new
+    @comments = @post.comments.order 'created_at desc'
   end
 
   # GET /posts/new
@@ -70,6 +71,9 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_commentable
       @commentable = Post.find(params[:id])
+    end
+     def set_post
+      @post = Post.find(params[:id])
     end
     # def set_post
     #   @post = Post.find(params[:id])

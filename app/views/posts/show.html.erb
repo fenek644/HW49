@@ -2,34 +2,27 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @commentable.content %>
+  <%= @post.content %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @commentable.user_id %>
+  <%= @post.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@commentable) %> |
+<%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
 
 <hr />
 
 <!------------------------------------------------------------------------->
 
-<%#= form_for([:commentable, @comment]) do |f| %>
+
 <%= form_for([@commentable, Comment.new]) do |f| %>
 
-
-<!--  <p>-->
-<!--    <%#= f.label :author %> <br/>-->
-    <%#=   current_user.username  %>
-    <%#= f.hidden_field :author, value: current_user.username %>
-<!--  </p>-->
-
   <p>
-    <%= f.label :content %> <br/>
-    <%= f.text_area :content %>
+    <%= f.label :comment %> <br/>
+    <%= f.text_area :content, placeholder: "Add a comment" %>
   </p>
 
   <p>
@@ -41,7 +34,6 @@
 <!----------------------------------------------------------------------------------->
 <% @comments.each do |comment| %>
   <h2><%= comment.content %></h2>
-<!--  <p><%#= comment.body %></p>-->
-<!--  <p><%#= comment.created_at %></p>-->
+
   <hr />
 <% end %>
